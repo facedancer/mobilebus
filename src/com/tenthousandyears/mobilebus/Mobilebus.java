@@ -4,9 +4,12 @@
  */
 package com.tenthousandyears.mobilebus;
 
+import com.sun.lwuit.Button;
+import com.sun.lwuit.Container;
 import com.sun.lwuit.Display;
 import com.sun.lwuit.Form;
 import com.sun.lwuit.Label;
+import com.sun.lwuit.TextField;
 import com.sun.lwuit.layouts.BorderLayout;
 
 /**
@@ -19,8 +22,17 @@ public class Mobilebus extends javax.microedition.midlet.MIDlet {
         Form mainForm = new Form("Envibus en temp reel");
 
         mainForm.setLayout(new BorderLayout());
-        mainForm.addComponent(BorderLayout.CENTER, new Label("TExT"));
+        Container container = new Container();
 
+        mainForm.addComponent(BorderLayout.CENTER, container);
+
+        TextField textField = new TextField(15);
+        textField.setLabelForComponent(new Label("Bus stop name"));
+        container.addComponent(textField);
+
+        Button submitButton = new Button("Submit");
+        container.addComponent(submitButton);
+        
         mainForm.show();
     }
 
